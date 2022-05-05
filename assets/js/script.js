@@ -1,0 +1,1 @@
+console.log("Hello tous le monde, venant de script.js");
