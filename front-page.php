@@ -27,9 +27,6 @@ get_header();
 				<a href="#" class="btn btn-secondary green">Nous contacter</a>
 			</div>
 		</div>
-
-		<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_2" />
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_3" /> -->
 	</div>
 	
 	<div class="front-page__liens">

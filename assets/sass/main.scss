@@ -2,15 +2,23 @@
 /* Variables */
 /* ********* */
     /* Couleurs */
-$blue: #2a418f;
-$orange: #f5a65b;
-$green: #9ebc9e;
-$black: #0c1328;
-$grey: #f8f8f8;
-$white: #ffffff;
+    $blue: #2a418f;
+    $orange: #f5a65b;
+    $green: #9ebc9e;
+    $black: #0c1328;
+    $grey: #f8f8f8;
+    $white: #ffffff;
     
     /* Fonts */
-    
+
+    @import 'partials/font';
+
+
+    $big_title: "LilitaOne-Regular";
+    $titre: "AUTHENTICSans-130";
+    $sous_titre: "AUTHENTICSans-90";
+    $paragraphe: "AUTHENTICSans-60";
+  
 
 /* ************** */
 /* Règles de base */
@@ -28,6 +36,7 @@ body{
     background-color: #ffffff;
     overflow-x: hidden;
     color: $black;
+    font-family: "AUTHENTICSans-60";
 }
 .container{
     max-width: 1500px;

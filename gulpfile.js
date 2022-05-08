@@ -10,16 +10,16 @@ compileSass.compiler = require('node-sass');
 
 const bundleSass = async () => {
   
-  return src('./resources/scss/style.scss')
+  return src('./assets/sass/main.scss')
     .pipe(compileSass().on('error', compileSass.logError))
     .pipe(minifyCss())
     .pipe(sourceMaps.write())
-    .pipe(concat('style.css'))
-    .pipe(dest('./public/'));
+    .pipe(concat('main.css'))
+    .pipe(dest('./assets/css'));
 };
 
 const devWatch = () => {
-  watch('./resources/scss/**/*.scss', gulp.parallel(bundleSass) );
+  watch('./assets/sass/**/*.scss', gulp.parallel(bundleSass) );
 }
 
 exports.bundleSass = bundleSass;
