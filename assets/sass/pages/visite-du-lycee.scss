@@ -1,0 +1,77 @@
+.blue-text {
+    color: #2A418F;
+}
+
+.orange-text {
+    color: #F5A65B;
+}
+
+.template-visite {
+    margin-left: 100px;
+    margin-right: 100px;
+
+    p {
+        font-size: 18px;
+    }
+
+    img {
+        border-radius: 28px;
+        width: 600px;
+        height: 400px;
+    }
+
+    .visite__header {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        margin: 100px 0px;
+        align-items: center;
+
+    
+        div:nth-child(1) {
+            width: 40%;
+        }
+    
+        div:nth-child(2) {
+            width: 40%;
+        }
+    }
+
+    .visite__card {
+        border-radius: 28px;
+        box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
+        padding: 70px 100px;
+        margin: 70px 0px;
+        text-align: center;
+
+        p {
+            margin-bottom: 50px;
+        }
+    }
+
+    .visite__horraire {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 100px 0px;
+        align-items: center;
+    
+        div:nth-child(1) {
+            width: 40%;
+        }
+    
+        div:nth-child(2) {
+            width: 40%;
+        }
+
+        p:nth-child(2) {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .visite__infos {
+        margin-top: -85px;
+        margin-bottom: 100px;
+    }
+}

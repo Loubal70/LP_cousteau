@@ -18,9 +18,9 @@ get_header();
 	<?php //endwhile; endif; ?>
 
 	<div class="front-page__entete">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_1" />
+		<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_1" /> -->
 		
-		<div class="main-text">
+		<div class="main-text container">
 			<p>Lycée des industries de la <span class="green">chimie</span> de l'agroalimentaire de la <span class="green">cosmétique</span> et de la pharmacie des entreprises de propreté et de <span class="green">stérilisation</span></p>
 			<div class="link-buttons">
 				<a href="#" class="btn btn-primary orange">Nos formations</a>
@@ -48,7 +48,31 @@ get_header();
 			<h2>Nos formations</h2>
 			
 			<div class="all_formations">
+				<?php
+					$args = array(
+						'post_type' 		=> 'formations',
+						'post_status' 		=> 'publish',
+						'posts_per_page' 	=> 8, 
+						'orderby' 			=> 'title', 
+						'order' 			=> 'ASC', 
+
+					);
+					$query = new WP_Query( $args );
+				?>
+
+				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 				<div class="single-formation">
+					<a href="#">
+						<?php if(has_post_thumbnail()): ?>
+							<?php echo wp_get_attachment_image(get_post_thumbnail_id()) ?>
+							<?php else : ?>
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_3">
+						<?php endif;?>
+						<h3><?php the_title() ?></h3>
+					</a>
+				</div>
+				<?php endwhile; ?>
+				<!-- <div class="single-formation">
 					<a href="#">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_1">
 						<p>BTS Bio <span class="orange">Qualité</span></p>
@@ -77,7 +101,7 @@ get_header();
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_5">
 						<p>CAP Agent de <span class="orange">Propreté</span> et <span class="orange">d'Hygiène</span></p>
 					</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

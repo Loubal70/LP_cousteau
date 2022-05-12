@@ -1,0 +1,22 @@
+/* ****** */
+/* FOOTER */
+/* ****** */
+.site__footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2a418f;
+    padding: 25px 50px;
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .logo__footer{
+            height: 75px;
+            margin-right: 30px;
+            filter: brightness(10);
+        }
+    }
+}
