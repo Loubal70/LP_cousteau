@@ -2,21 +2,81 @@
 /* FOOTER */
 /* ****** */
 .site__footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
     background-color: #2a418f;
-    padding: 25px 50px;
+    padding: 50px 30px;
     .container{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        gap: 30px;
+
+        @media (min-width: map-get($grid-breakpoints, 'lg')) {
+            flex-direction: row;
+        }
+
+
         .logo__footer{
             height: 75px;
-            margin-right: 30px;
+            // margin-right: 30px;
             filter: brightness(10);
+        }
+
+        .infos-contact{
+
+            @media (min-width: map-get($grid-breakpoints, 'lg')) {
+                flex-basis: 60%;
+            }
+            div{
+                margin: 30px 0;
+                color: $white;
+                
+                &:nth-child(1){
+                    font-family: $titre;
+                    font-size: 1.5rem;
+                    margin-top: 0;
+                }
+
+                &:nth-child(2){
+                    font-family: $paragraphe;
+                    font-size: 1.3rem;
+                }
+
+                &:nth-child(3){
+                    font-family: $titre;
+                    font-size: 1.5rem;
+                    a{
+                        text-decoration: none;
+                        color: $white;
+                    }
+                }
+
+            }
+        }
+
+        .menu-footer-container{
+            .site__footer__menu{
+                list-style: none;
+                li {
+                    margin: 10px 0;
+
+                    &:nth-child(1){
+                        margin-top: 0;
+                    }
+
+                    a{
+                        color: $white;
+                        font-size: 1.2rem;
+                        font-family: $paragraphe;
+                        text-decoration: none;
+                    }
+
+                }
+            }
         }
     }
 }

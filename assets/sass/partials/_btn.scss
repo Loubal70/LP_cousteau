@@ -3,7 +3,7 @@
     width: auto;
     font-size: 1.1rem;
     text-align: center;
-    padding: 10px 15px;
+    padding: 15px 30px;
     border-radius: 5px;
     text-decoration: none;
     border: 1px solid $black;
@@ -12,9 +12,10 @@
         border: none;
         color: $white;
         background-color: $black;
+        transition: background-color 0.3s ease-in-out;
         &.orange{
             background-color: $orange;
-            transition: background-color 0.3s ease-in-out;
+            font-family: $sous-titre;
 
             &:hover{
                 background-color: #dc8f46;
@@ -24,6 +25,11 @@
         
         &.green{
             background-color: $green;
+
+            &:hover{
+                background-color: #739d73;
+            }
+
         }
 
         &.blue{
@@ -39,7 +45,7 @@
         border: 1px solid $black;
         color: $black;
         background-color: $white;
-        transition: background-color 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         &.orange{
             color: $orange;
             border-color: $orange;
@@ -50,10 +56,11 @@
         }
         &.green{
             color: $green;
-            border-color: $green;
+            border-color: $white;
             &:hover{
                 background-color: $green;
                 color: $white;
+                border-color: $green;
             }
         }
         &.grey{

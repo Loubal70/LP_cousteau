@@ -16,15 +16,61 @@
 
     img {
         border-radius: 28px;
-        width: 600px;
-        height: 400px;
+        width: 570px;
+        height: 350px;
+    }
+
+    #square1 {
+        width: 200px;
+        height: 120px;
+        border-radius: 30px;
+        background: #f5a65b;
+        opacity: 0.3;
+        bottom: -50px;
+        left: 50%;
+        position: absolute;
+        z-index: 20;
+    }
+
+    #square2 {
+        width: 200px;
+        height: 120px;
+        border-radius: 30px;
+        background: #edf4ed;
+        opacity: 0.7;
+        right: -50px;
+        top:-60px;
+        position: absolute;
+        z-index: 20;
+    }
+
+    #square3 {
+        width: 216px;
+        height: 166px;
+        border-radius: 30px;
+        background: #f5a65b;
+        opacity: 0.3;
+        position: absolute;
+        bottom: -40px;
+        left: -40px;
+    }
+
+    #square4 {
+        width: 216px;
+        height: 166px;
+        border-radius: 30px;
+        background: #edf4ed;
+        opacity: 0.7;
+        position: absolute;
+        top: -40px;
+        right: -130px;
     }
 
     .visite__header {
         display: flex;
         justify-content: space-around;
         flex-direction: row;
-        margin: 100px 0px;
+        margin: 150px 0px;
         align-items: center;
 
     
@@ -46,6 +92,7 @@
 
         p {
             margin-bottom: 50px;
+            line-height: 30px;
         }
     }
 
@@ -53,7 +100,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        margin: 100px 0px;
+        margin: 150px 0px;
         align-items: center;
     
         div:nth-child(1) {
@@ -74,4 +121,164 @@
         margin-top: -85px;
         margin-bottom: 100px;
     }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .template-visite {
+        margin-left: 30px;
+        margin-right: 30px;
+    
+        #square1 {
+            bottom: -50px;
+            left: 10%;
+        }
+    
+        #square2 {
+            right: 50px;
+            top: 200px;
+        }
+    
+        #square3 {
+            bottom: -40px;
+            left: 70px;
+        }
+    
+        #square4 {
+            top: -40px;
+            right: 80px;
+        }
+    
+        .visite__header {
+            flex-direction: column;
+            margin-top: 70px;
+            margin-bottom: 150px;
+            align-items: center;
+            gap: 70px;
+
+            h1 {
+                text-align: center;
+            }
+    
+        
+            div:nth-child(1) {
+                width: 100%;
+            }
+        
+            div:nth-child(2) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    
+        .visite__card {
+            border-radius: 28px;
+            box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
+            padding: 70px 50px;
+            margin: 15px 0px;
+            text-align: center;
+        }
+    
+        .visite__horraire {
+            flex-direction: column;
+            margin-bottom: 70px;
+            margin-top: 150px;
+        
+            div:nth-child(1) {
+                width: 100%;
+                text-align: center;
+            }
+        
+            div:nth-child(2) {
+                width: 100%;
+                margin-top: 120px;
+            }
+    
+            p:nth-child(2) {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    
+        .visite__infos {
+            margin-top: -50px;
+            margin-bottom: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .template-visite {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        img {
+            border-radius: 28px;
+            width: 350px;
+            height: 230px;
+        }
+    
+        #square1 {
+            bottom: -20px;
+            left: 0px;
+            border-radius: 15px;
+            width: 150px;
+            height: 70px;
+        }
+    
+        #square2 {
+            right: 0px;
+            top: 300px;
+            border-radius: 15px;
+            width: 150px;
+            height: 70px;
+        }
+    
+        #square3 {
+            border-radius: 15px;
+            width: 150px;
+            height: 70px;
+            bottom: -40px;
+            left: 0px;
+        }
+    
+        #square4 {
+            border-radius: 15px;
+            width: 150px;
+            height: 70px;
+            top: -40px;
+            right: 0px;
+        }
+
+        .visite__header {
+            margin-bottom: 100px;
+        }
+    
+        .visite__card {
+            border-radius: 28px;
+            box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.16);
+            padding: 70px 15px;
+            margin: 15px 0px;
+            text-align: center;
+
+            img {
+                margin-left: 0px;
+            }
+        }
+
+        .visite__horraire {
+            margin-top: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    
+        .visite__card {
+            img {
+                margin-left: 0px;
+                width: 280px;
+                height: 180px;
+            }
+        }
 }

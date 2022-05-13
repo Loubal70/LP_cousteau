@@ -1,0 +1,83 @@
+.slider{
+    
+    &__content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        background-color: rgba($blue, .7);
+        border-radius: 20px;
+        color: $white;
+
+        transition: opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+        h3{
+            font-family: $titre;
+            font-size: 1.8rem;
+            line-height: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        a{
+            color: $white;
+            font-size: 1.1rem;
+            font-family: $paragraphe;
+            text-decoration: underline;
+        }
+    }
+
+    /* the slides */
+    &.slick-slide {
+        position: relative;
+        margin: 0 25px;
+        border-radius: 10px;
+        img{
+            width: 100%;
+            border-radius: 20px;
+            height: 300px;
+            object-fit: cover;
+
+            @media (min-width: map-get($grid-breakpoints, 'lg')) {
+                height: 450px;
+            }
+        }
+
+        &:hover{
+            .slider__content{
+                opacity: 1;
+            }
+        }
+    }
+
+}
+
+
+
+/* the parent */
+.slick{
+    &-list {
+        margin: 0 -27px;
+    }
+    &-dots li {
+        button:before{
+            font-size: 15px;
+            top: 40px;
+            color: $orange;
+        }
+
+        &.slick-active button:before {
+            color: $orange;
+            opacity: 1;
+        }
+    }
+}

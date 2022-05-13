@@ -31,15 +31,75 @@ get_header();
 	
 	<div class="front-page__liens">
 		<div class="container">
-			<a href="#" class="single-lien"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_pronote.png" alt="Icone_pronote"><span>Accès Pronote</span></a>
-			<a href="#" class="single-lien"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_alternance.png" alt="Icone_alternance"><span>Formation en alternance</span></a>
-			<a href="#" class="single-lien"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_ent.png" alt="Icone_ENT"><span>Accès ENT</span></a>
+
+		<?php
+			$pronote 	= get_field('liens_dacces_a_pronote', 'options');
+			$alternance = get_field('liens_dacces_a_formation_en_alternance', 'options');
+			$ent 		= get_field('liens_dacces_a_lent', 'options');
+		?>
+			<?php if ( $pronote ): ?>
+				<a href="<?= $pronote ?>" class="single-lien" target="_blank">
+					<img 
+						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_pronote.png" 
+						alt="Icone_pronote">
+						Accès Pronote
+				</a>
+			<?php endif; ?>
+
+			<?php if ( $alternance ): ?>
+				<a href="<?= $alternance ?>" class="single-lien" target="_blank">
+					<img 
+						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_alternance.png" 
+						alt="Icone_alternance">
+						Formation en alternance
+				</a>
+			<?php endif; ?>
+
+			<?php if ( $ent ): ?>
+				<a href="<?= $ent ?>" class="single-lien" target="_blank">
+					<img 
+						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_ent.png" 
+						alt="Icone_ENT">
+						Accès ENT
+				</a>
+			<?php endif; ?>
+
 		</div>
 	</div>
 	
 	<div class="front-page__actualites">
 		<div class="container">
 			<h2>Actualités</h2>
+
+			<div class="sliders">
+
+				<?php
+					$args = array(
+						'post_type' 		=> 'post',
+						'post_status' 		=> 'publish',
+						'posts_per_page' 	=> 8,
+
+					);
+					$query = new WP_Query( $args );
+				?>
+
+				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+					<div class="slider">
+						<?php if ( has_post_thumbnail() ): ?>
+								<?php the_post_thumbnail(); ?>
+							<?php else: ?>
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Article sans Image">
+						<?php endif; ?>
+						<div class="slider__content">
+							<h3><?php the_title(); ?></h3>
+							<a href="<?php echo the_permalink(); ?>">En savoir plus</a>
+						</div>
+					</div>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+
+			</div>
+
 		</div>
 	</div>
 	
@@ -61,47 +121,20 @@ get_header();
 				?>
 
 				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-				<div class="single-formation">
-					<a href="#">
-						<?php if(has_post_thumbnail()): ?>
-							<?php echo wp_get_attachment_image(get_post_thumbnail_id()) ?>
-							<?php else : ?>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_3">
-						<?php endif;?>
-						<h3><?php the_title() ?></h3>
-					</a>
-				</div>
+					<div class="single-formation">
+						<a href="<?= get_the_permalink(); ?>">
+							<div class="image">
+								<?php if(has_post_thumbnail()): ?>
+									<?php echo wp_get_attachment_image(get_post_thumbnail_id()) ?>
+									<?php else : ?>
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation">
+								<?php endif;?>
+							</div>
+							<h3><?php the_title() ?></h3>
+						</a>
+					</div>
 				<?php endwhile; ?>
-				<!-- <div class="single-formation">
-					<a href="#">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_1">
-						<p>BTS Bio <span class="orange">Qualité</span></p>
-					</a>
-				</div>
-				<div class="single-formation">
-					<a href="#">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_2">
-						<p>BP Bio Industries de <span class="orange">Transformation</span></p>
-					</a>
-				</div>
-				<div class="single-formation">
-					<a href="#">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_3">
-						<p>BP Procédés de la <span class="orange">Chimie</span> de <span class="orange">l'Eau</span> et des <span class="orange">Papiers Cartons</span> (2nde PMIA)</p>
-					</a>
-				</div>
-				<div class="single-formation">
-					<a href="#">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_4">
-						<p>BP <span class="orange">Hygiène</span>, Propreté et <span class="orange">Stérilisation</span></p>
-					</a>
-				</div>
-				<div class="single-formation">
-					<a href="#">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_formation_5">
-						<p>CAP Agent de <span class="orange">Propreté</span> et <span class="orange">d'Hygiène</span></p>
-					</a>
-				</div> -->
+				<?php wp_reset_postdata(); ?>
 			</div>
 		</div>
 	</div>
@@ -113,7 +146,7 @@ get_header();
 				<a href="#" class="btn btn-primary orange">Nous contacter</a>
 			</div>
 			<div class="single-question-card bg-green">
-				<p><strong>Intéressé par l'apprentisage ?</strong></p>
+				<p>Intéressé par l'apprentisage ?</p>
 				<a href="#" class="btn btn-primary green">+ d'infos</a>
 			</div>
 		</div>

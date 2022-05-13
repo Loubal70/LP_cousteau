@@ -14,6 +14,8 @@
             align-items: center;
             height: 50vh;
 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            url("../images/LycéeCousteau - Lycée des industries de la chimie de l'agroalimentaire de la cosmétique et de la pharmacie des entreprises de propreté et de stérilisation.webp");
             img{
                 position: absolute;
                 top: 0;
@@ -34,61 +36,79 @@
                     text-align: center;
                     margin-bottom: 30px;
                     font-family: $titre;
-                    color: $blue;
-                    font-size: 1.3rem;
+                    color: $white;
+                    font-size: 1.5rem;
 
                     span.green{
-                        color: $green;
+                        color: #acd5ac;
                     }
                 }
                 .link-buttons{
                     width: 100%;
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     justify-content: space-around;
                     align-items: center;
-
+                    gap: 30px;
                     margin-top: 3rem;
+
+                    @media (min-width: map-get($grid-breakpoints, 'lg')) {
+                        flex-direction: row;
+                        gap: 0;
+                    }
 
                     a{
                         margin: 0 20px;
+
+                        width: 100%;
+                        padding: 15px 40px;
+                        letter-spacing: .4px;
+                        font-family: $sous_titre;
+
+                        @media (min-width: map-get($grid-breakpoints, 'lg')) {
+                            width: fit-content;
+                        }
                     }
                 }
             }
         }
 
         &__liens{
-            margin: 3rem 0;
+            margin: 5rem 0 2.5rem;
 
             .container{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: center;
-                align-items: flex-end;
+                align-items: center;
                 gap: 70px;
+
+                @media (min-width: map-get($grid-breakpoints, 'sm')) {
+                    flex-direction: row;
+                }
 
                 .single-lien{
                     display: flex;
                     flex-direction: column;
-                    justify-content: flex-end;
+                    justify-content: center;
                     align-items: center;
                     text-decoration: none;
                     color: $blue;
                     font-family: $sous_titre;
+                    text-align: center;
+                    font-size: 1.2rem;
 
                     img{
                         margin-bottom: 15px;
                     }
 
-                    span{
-                        font-size: 1.2rem;
-                    }
                 }
             }
         }
 
         &__actualites{
             padding: 5rem 0;
+            overflow: hidden;
         }
 
         &__formations{
@@ -103,17 +123,22 @@
                 .all_formations{
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-around;
+                    justify-content: center;
                     align-items: flex-start;
                     flex-wrap: wrap;
                     // padding: 0 75px;
                     gap: 30px;
+                    margin-top: 2rem;
 
                     .single-formation{
                         // max-width: 200px;
                         // margin: 0 70px;
                         // margin-bottom: 50px;
-                        flex-basis: 30%;
+                        flex-basis: 100%;
+                        
+                        @media (min-width: map-get($grid-breakpoints, 'md')) {
+                            flex-basis: 30%;
+                        }
                         a{
                             width: 100%;
                             height: 100%;
@@ -122,20 +147,34 @@
                             justify-content: flex-start;
                             align-items: center;
                             text-decoration: none;
-                            img{
+                            .image{
+                                overflow: hidden;
+                                border-radius: 50%;
                                 width: 200px;
                                 height: 200px;
-                                object-fit: cover;
-                                object-position: center center;
-                                border-radius: 50%;
                                 margin-bottom: 20px;
+                                img{
+                                    width: 200px;
+                                    height: 200px;
+                                    object-fit: cover;
+                                    object-position: center center;
+                                    border-radius: 50%;
+                                    transition: transform 0.5s ease;
+    
+                                    &:hover{
+                                        transform: scale(1.1);
+                                    }
+                                }
                             }
                             h3{
                                 color: $blue;
+                                font-family: $sous_titre;
                                 word-wrap: break-word;
                                 text-align: center;
-                                font-size: 1rem;
-                                line-height: 1.2;
+                                font-size: 1.2rem;
+                                line-height: 1.5;
+                                width: 60%;
+
                                 span.orange{
                                     color: $orange;
                                 }
@@ -150,12 +189,19 @@
             padding: 5rem 0;
             .container{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
+                gap: 30px;
+
+                @media (min-width: map-get($grid-breakpoints, 'lg')) {
+                    flex-direction: row;
+                    gap: 0;
+                }
+
                 .single-question-card{
                     padding: 50px 35px;
-                    border-radius: 5px;
+                    border-radius: 10px;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -167,9 +213,13 @@
                         background-color: #9ebc9e44;
                     }
                     p{
-                        font-family: $sous_titre;
-                        font-size: 1.25rem;
+                        font-family: $titre;
+                        font-size: 1.4rem;
                         margin-bottom: 55px;
+                    }
+                    a{
+                        font-size: 18px;
+                        letter-spacing: .5px;
                     }
                 }
             }

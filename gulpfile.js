@@ -24,6 +24,7 @@ const bundleSass = async () => {
 
 const devWatch = () => {
   watch('./assets/sass/**/*.scss', gulp.parallel(bundleSass, deploy) );
+  watch('./assets/js/**/*.js', gulp.parallel(deploy) );
   watch('./*.php', deploy);
 }
 
@@ -35,7 +36,7 @@ const deploy = () => {
   } );
 
   var globs = [
-    'assets/css/**','*.js','*.php'
+    'assets/css/**','assets/js/**','*.php'
   ];
 
 	return gulp.src( globs, { base: '.', buffer: false } )

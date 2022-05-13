@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
 <div class="template-editorial content-body">
-    <div class="editorial__presentation">
+    <div class="editorial__presentation container">
         <div>
-            <img src="" alt="">
+            <img src="https://www.tangycoffee.com/wp-content/uploads/2020/12/coffee-4609952_1280-e1607080525823.jpg" alt="">
         </div>
         <div>
-            <h1 class="title">Editorial du proviseur</h1>
+            <h1 class="title"><?php the_title() ?></h1>
             <p>Depuis prés de cinquante ans, la communauté éducative du lycée professionnel Jacques-Yves Cousteau accueille avec le même engouement des jeunes venus de divers horizons et participe activement à la concrétisation de leur projet professionnel.</p>
         </div>
     </div>
@@ -23,15 +23,15 @@
         <div class="formation-presentation__gallery">
             <div>
                 <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>Formation</p>
+                <p>L'hygiène, la propeté et la stérilisation</p>
             </div>
             <div>
                 <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>Formation</p>
+                <p>Chimie</p>
             </div>
             <div>
                 <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>Formation</p>
+                <p>L'agroalimentaire</p>
             </div>
         </div>
         <div class="formation-presentation__insertion">
@@ -48,6 +48,17 @@
             <p>Ainsi l’établissement accueille aussi de jeunes apprentis et contribue à la formation tout au long de la vie d’adultes. Disposant de plateaux techniques à la pointe du modernisme, les espaces numériques et pédagogiques font l’unanimité tant auprès des personnels et des jeunes que des professionnels.</p>
             <p>De taille humaine, le lycée professionnel Jacques-Yves Cousteau dispose d’un cadre verdoyant et les enseignements en groupe à effectifs réduits permettent un meilleur apprentissage des savoirs, savoir-faire et l’acquisition de savoir-être.</p>
         </div>
+    </div>
+
+    <div class="editorial__resume">
+        <p>Enfin la communauté éducative est attachée à l’ouverture culturelle des apprenants. Ainsi de nombreux projets éducatifs et pédagogiques se déroulent tout au long de l’année scolaire. L’éducation du citoyen de demain vient, de fait, compléter la formation du futur salarié et ce dans un épanouissement culturel certain.</p>
+        <img src="https://cousteau-wasquehal.enthdf.fr/wp-content/uploads/2019/11/image-lycee-900x420.jpg" alt="">
+        <p>Vous l’aurez compris, le lycée Jacques-Yves Cousteau, fort d’une longue expérience, poursuit son ambition de faire réussir chaque jeune qui lui fait confiance en menant à terme son projet professionnel.</p>
+    </div>
+
+    <div class="editorial__proviseur">
+        <p>Philippe Colmant</p>
+        <p>Proviseur</p>
     </div>
 </div>
 

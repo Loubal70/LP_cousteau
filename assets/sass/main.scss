@@ -38,8 +38,8 @@ $grid-breakpoints: (
 
 body{
     position: relative;
-    width: 100vw;
-    min-height: 100vh;
+    overflow-x: hidden;
+    min-height: 95vh;
     background-color: #ffffff;
     overflow-x: hidden;
     color: $black;
@@ -51,13 +51,23 @@ body{
     position: fixed;
 }
 
+// Mobile OnTap Remove Blue HighLight
+a{
+    -webkit-tap-highlight-color: transparent;
+}
+
+p{
+    letter-spacing: .5px;    
+    line-height: 25px;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
 
-    @media (min-width: map-get($grid-breakpoints, lg)) {
+    @media (min-width: map-get($grid-breakpoints, xl)) {
         width: map-get($grid-breakpoints, xl);
     }
 
@@ -84,11 +94,7 @@ body{
 
 @import 'partials/btn';
 @import 'partials/title';
-
-.content-body{
-    width: 100%;
-    padding-bottom: 200px;
-}
+@import 'partials/slick';
 
 @import 'partials/header';
 
@@ -100,3 +106,7 @@ body{
 @import 'pages/frontpage';
 @import 'pages/editorial-proviseur';
 @import 'pages/visite-du-lycee';
+@import 'pages/acces-au-lycee';
+@import 'pages/internat';
+@import 'pages/single-formations';
+@import 'pages/contact';

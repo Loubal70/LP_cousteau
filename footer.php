@@ -1,16 +1,21 @@
 <footer class="site__footer">
     <div class="container">                
-        <img class="logo__footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Logo_Lycée_Cousteau_N&B" />
+        <img class="logo__footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-cousteau-blanc.png" alt="Logo_Lycée_Cousteau_N&B" />
 
         <div class="infos-contact">
-            <ul>
-                <li>Lycée Professionnel Jacques-Yves Cousteau</li>
-                <li>27 rue Pasteur BP 2066<br/>5944<br/>WASQUEHAL CEDEX</li>
-                <li><a href="tel:+33320723759">03 20 72 37 59</a></li>
-            </ul>
+            <div>Lycée Professionnel Jacques-Yves Cousteau</div>
+            <div><?php echo get_field('adresse', 'options'); ?></div>
+            <div>
+                <?php $tel = get_field('tel', 'options'); ?>
+                <a href="tel:<?= (!empty($tel) ? str_replace(' ','',$tel) : "") ?>"><?= (!empty($tel) ? str_replace('+33','0',$tel) : "") ?></a>
+            </div>
+            
         </div>
 
-        <?php wp_nav_menu( array( 'theme_location' => 'footer', 'container' => 'ul', 'menu_class' => 'site__footer__menu' ) ); ?>
+        <?php wp_nav_menu( array( 
+            'theme_location'    => 'footer', 
+            'container'         => 'div', 
+            'menu_class'        => 'site__footer__menu' ) ); ?>
     </div>
 </footer>
 

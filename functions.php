@@ -42,6 +42,11 @@ function cousteau_register_assets() {
         '1.0', 
         true
     );
+
+    if( is_front_page() )
+    {
+        wp_enqueue_script( 'homestuff', get_template_directory_uri().'/assets/js/frontpage.js', array( 'jquery' ), null, true );
+    }
     
     // Déclarer le fichier style.css à la racine du thème
     wp_enqueue_style( 
@@ -117,3 +122,32 @@ function cpt_formations() {
     register_post_type( 'formations', $args );
 }
 add_action( 'init', 'cpt_formations' );
+
+/**
+ *  Ajout d'une page ACF
+ */
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Paramètres Généraux',
+		'menu_title'	=> 'Paramètres',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+        'icon_url'      => 'dashicons-admin-settings',
+		'position'      => 2,
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Paramètres Généraux',
+		'menu_title'	=> 'Général',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Pied de page',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+}
+
