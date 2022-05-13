@@ -15,7 +15,15 @@
             </a>  
 
             <div class="nav-principal-desktop">
-                <?php wp_nav_menu( array( 'theme_location' => 'main', 'container' => 'ul', 'menu_class' => 'site__header__menu' ) ); ?>
+                <?php 
+                    wp_nav_menu( 
+                        array( 
+                            'theme_location'    => 'main', 
+                            'container'         => 'ul', 
+                            'menu_class'        => 'site__header__menu' 
+                        ) 
+                    ); 
+                ?>
                 
                 <a href="/contactez-nous" class="btn btn-primary orange link-contact-us">Contactez-nous</a>
             </div>

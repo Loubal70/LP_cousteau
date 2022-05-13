@@ -151,3 +151,15 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+// Add image in menu items
+add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+function my_wp_nav_menu_objects( $items, $args ) {
+	foreach( $items as &$item ) {
+		$icon = get_field('image_du_menu', $item);
+		if( $icon ) {
+			$item->title .= '<div>'.wp_get_attachment_image($item->image_du_menu)."</div>";	
+		}	
+	}
+	return $items;
+}
