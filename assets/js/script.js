@@ -1,1 +1,1 @@
-console.log("Hello tous le monde, venant de script.js");
+// console.log("Hello tous le monde, venant de script.js");

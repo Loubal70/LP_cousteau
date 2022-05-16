@@ -41,6 +41,7 @@ get_header();
 				<a href="<?= $pronote ?>" class="single-lien" target="_blank">
 					<img 
 						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_pronote.png" 
+						class="custom-size"
 						alt="Icone_pronote">
 						Accès Pronote
 				</a>
@@ -50,6 +51,7 @@ get_header();
 				<a href="<?= $alternance ?>" class="single-lien" target="_blank">
 					<img 
 						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_alternance.png" 
+						class="custom-size"
 						alt="Icone_alternance">
 						Formation en alternance
 				</a>
@@ -59,6 +61,7 @@ get_header();
 				<a href="<?= $ent ?>" class="single-lien" target="_blank">
 					<img 
 						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_ent.png" 
+						class="custom-size"
 						alt="Icone_ENT">
 						Accès ENT
 				</a>

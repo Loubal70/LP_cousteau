@@ -34,6 +34,7 @@ $grid-breakpoints: (
     padding: 0;
     box-sizing: border-box;
     position: relative;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -41,9 +42,8 @@ body{
     overflow-x: hidden;
     min-height: 95vh;
     background-color: #ffffff;
-    overflow-x: hidden;
     color: $black;
-    font-family: "AUTHENTICSans-60";
+    font-family: $paragraphe;
 }
 
 #wpadminbar{
@@ -54,11 +54,25 @@ body{
 // Mobile OnTap Remove Blue HighLight
 a{
     -webkit-tap-highlight-color: transparent;
+    color: $orange;
+    font-family: $sous_titre;
+    text-decoration: none;
+    transition: color .3s ease;
+    
+    &:hover{ 
+        color: #dc8f46;
+    }
 }
 
 p{
     letter-spacing: .5px;    
     line-height: 25px;
+}
+
+img:not(.custom-size){
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .container {

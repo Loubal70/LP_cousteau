@@ -47,6 +47,16 @@ function cousteau_register_assets() {
     {
         wp_enqueue_script( 'homestuff', get_template_directory_uri().'/assets/js/frontpage.js', array( 'jquery' ), null, true );
     }
+
+    if( is_page($page = "internat") )
+    {
+        wp_enqueue_script( 'internat', get_template_directory_uri().'/assets/js/internat.js', array( 'jquery' ), null, true );
+    }
+
+    if( is_singular('formations') )
+    {
+        wp_enqueue_script( 'formations', get_template_directory_uri().'/assets/js/formations.js', array( 'jquery' ), null, true );
+    }
     
     // Déclarer le fichier style.css à la racine du thème
     wp_enqueue_style( 
@@ -111,17 +121,99 @@ function cpt_formations() {
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'formation' ),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 20,
-        'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
-        'taxonomies'         => array( 'category', 'post_tag' ),
+        'menu_icon'          => 'dashicons-welcome-learn-more',   
+        'supports'           => array( 'title', 'editor', 'author' ),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
         'show_in_rest'       => true
     );
       
     register_post_type( 'formations', $args );
 }
 add_action( 'init', 'cpt_formations' );
+
+
+/**
+ *  Ajout d'un champ Niveau pour le type de contenu "Formations"
+ */
+add_action( 'init', 'create_taxonomy_duree_for_formations', 0 );
+function create_taxonomy_duree_for_formations() {
+
+    // Labels part for the GUI
+
+    $labels = array(
+        'name' => _x( 'durée', 'duree' ),
+        'singular_name' => _x( 'Durée', 'duree' ),
+        'search_items' => __( 'Rechercher une durée' ),
+        'popular_items' => __( 'Durée populaire' ),
+        'all_items' => __( 'Toutes les durées' ),
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => __( 'Editer une durée' ),
+        'update_item' => __( 'Mettre à jour' ),
+        'add_new_item' => __( 'Ajouter une durée' ),
+        'new_item_name' => __( 'Ajouter un nom pour cette durée' ),
+        'separate_items_with_commas' => __( 'Separate topics with commas' ),
+        'add_or_remove_items' => __( 'Ajouter ou supprimer une durée' ),
+        'choose_from_most_used' => __( 'Choisir parmis les durées populaires' ),
+        'menu_name' => __( 'Durée' ),
+    );
+
+    // Now register the non-hierarchical taxonomy like tag
+
+    register_taxonomy('duree','formations',array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'show_admin_column' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'duree' ),
+    ));
+}
+
+/**
+ *  Ajout d'un champ Niveau pour le type de contenu "Formations"
+ */
+add_action( 'init', 'create_taxonomy_niveau_for_formations', 0 );
+function create_taxonomy_niveau_for_formations() {
+
+    // Labels part for the GUI
+
+    $labels = array(
+        'name' => _x( 'Niveau d\'étude', 'niveau' ),
+        'singular_name' => _x( 'Niveau', 'niveau' ),
+        'search_items' => __( 'Rechercher une niveau' ),
+        'popular_items' => __( 'Niveau populaire' ),
+        'all_items' => __( 'Tous les niveaux' ),
+        'parent_item' => null,
+        'parent_item_colon' => null,
+        'edit_item' => __( 'Editer un niveau' ),
+        'update_item' => __( 'Mettre à jour' ),
+        'add_new_item' => __( 'Ajouter un niveau' ),
+        'new_item_name' => __( 'Ajouter un nom pour ce niveau' ),
+        'add_or_remove_items' => __( 'Ajouter ou supprimer une niveau' ),
+        'choose_from_most_used' => __( 'Choisir parmis les niveaux populaires' ),
+        'menu_name' => __( 'Niveau d\'étude' ),
+    );
+
+    // Now register the non-hierarchical taxonomy like tag
+
+    register_taxonomy('niveau','formations',array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'show_admin_column' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'niveau' ),
+    ));
+}
+
 
 /**
  *  Ajout d'une page ACF
@@ -140,6 +232,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Paramètres Généraux',
 		'menu_title'	=> 'Général',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Internat',
+		'menu_title'	=> 'Internat',
 		'parent_slug'	=> 'theme-general-settings',
 	));
 	

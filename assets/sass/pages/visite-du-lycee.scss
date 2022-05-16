@@ -16,8 +16,11 @@
 
     img {
         border-radius: 28px;
-        width: 570px;
-        height: 350px;
+        
+        @media (min-width: map-get($grid-breakpoints, 'lg')){
+            width: 570px;
+            height: 350px;
+        }
     }
 
     #square1 {
@@ -214,8 +217,8 @@
 
         img {
             border-radius: 28px;
-            width: 350px;
-            height: 230px;
+            // width: 350px;
+            // height: 230px;
         }
     
         #square1 {

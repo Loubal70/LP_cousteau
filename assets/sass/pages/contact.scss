@@ -1,9 +1,113 @@
 .template-contact {
+    margin-left: 100px;
+    margin-right: 100px;
+
     h1{
         text-align: center;
     }
 
-    // .contact__header {
-        
-    // }
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 22px;
+        font-weight: 900;
+        margin: 15px 0px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    a {
+        color: #2A418F;
+    }
+
+    .blue-text {
+        color: #2A418F;
+    }
+    
+    .orange-text {
+        color: #F5A65B;
+    }
+
+    .contact__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: 100px 0px;
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 550px;
+            height: 510px;
+        }
+
+        div:nth-child(1) {
+            width: 40%;
+        }
+
+        div:nth-child(2) {
+            width: 40%;
+        }
+    }
+
+    .contact__mail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: 150px 0px;
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 500px;
+            height: 500px;
+            border-radius: 28px;
+        }
+
+        div:nth-child(1) {
+            width: 40%;
+        }
+
+        div:nth-child(2) {
+            width: 40%;
+        }
+    }
+
+    .contact__scolaire {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: 150px 0px;
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 500px;
+            height: 500px;
+            border-radius: 28px;
+        }
+
+        div:nth-child(1) {
+            width: 40%;
+        }
+
+        div:nth-child(2) {
+            width: 40%;
+        }
+    }
 }
