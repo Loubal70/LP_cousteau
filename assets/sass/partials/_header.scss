@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
+    position: relative;
     
     @media (min-width: map-get($grid-breakpoints, xl)){
         flex-direction: row;
@@ -18,10 +18,13 @@
     
     .main-logo{
         height: 98px;
+        width: auto;
     }
+
     .button-open-menu-mobile{
         display: none;
     }
+
     .nav-principal-mobile{
         display: none;
     }
@@ -30,7 +33,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 20px 0;
+        padding: 5px 0 20px;
 
         @media (min-width: map-get($grid-breakpoints, xl)){
             flex-direction: row;
@@ -84,8 +87,8 @@
 
                 ul.sub-menu{
                     // display: none;
-                    position: fixed;
-                    top: 95px;
+                    position: absolute;
+                    // top: 95px;
                     left: 0;
                     background: white;
                     z-index: 1;
@@ -108,9 +111,9 @@
                         top: 100px
                     }
 
-                    @media (min-width: map-get($grid-breakpoints, xl)){
-                        top: 130px
-                    }
+                    // @media (min-width: 1300px){
+                    //     top: 130px
+                    // }
 
                     
 

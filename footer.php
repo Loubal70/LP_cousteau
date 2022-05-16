@@ -1,3 +1,7 @@
+<div class="back-to-top" onclick="topFunction();">
+  <i class="fa fa-angle-up"></i>
+</div>
+
 <footer class="site__footer">
     <div class="container">                
         <img class="logo__footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-cousteau-blanc.png" alt="Logo_Lycée_Cousteau_N&B" />

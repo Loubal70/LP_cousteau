@@ -34,12 +34,16 @@
                 <a href="mailto:ddfpt.0590249a@ac-lille.fr">ddfpt.0590249a@ac-lille.fr</a>
     </div>
     <div>
+        <span id="square1"></span>
+        <span id="square2"></span>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-mail-lycee.webp" alt="">
     </div>
 </div>
 
 <div class="contact__scolaire">
     <div>
+        <span id="square3"></span>
+        <span id="square4"></span>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
     </div>
     <div>

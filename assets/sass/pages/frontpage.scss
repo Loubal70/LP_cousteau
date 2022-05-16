@@ -12,7 +12,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            height: 50vh;
+            padding: 4rem 0;
 
             background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
             url("../images/LycéeCousteau - Lycée des industries de la chimie de l'agroalimentaire de la cosmétique et de la pharmacie des entreprises de propreté et de stérilisation.webp");
@@ -24,6 +24,11 @@
             }
             background-repeat: no-repeat;
             background-size: cover;
+
+            @media (min-width: map-get($grid-breakpoints, xl)) {
+                height: 50vh;
+                padding: 0;
+            }
 
             .main-text{
                 display: flex;
@@ -195,6 +200,7 @@
                 justify-content: space-around;
                 align-items: center;
                 gap: 30px;
+                text-align: center;
 
                 @media (min-width: map-get($grid-breakpoints, 'lg')) {
                     flex-direction: row;

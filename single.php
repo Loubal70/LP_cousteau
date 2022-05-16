@@ -14,7 +14,7 @@ get_header();
 
       <h1><?php the_title(); ?></h1>
 
-      <div class="post__meta">
+      <!-- <div class="post__meta">
         <?php echo get_avatar( get_the_author_meta( 'ID' ), 40 ); ?>
         <p>
           Publié le <?php the_date(); ?>
@@ -22,10 +22,12 @@ get_header();
           Dans la catégorie <?php the_category(); ?>
           Avec les étiquettes <?php the_tags(); ?>
         </p>
-      </div>
+      </div> -->
 
       <div class="post__content">
-        <?php the_content(); ?>
+        <main>
+          <?php the_content(); ?>
+        </main>
       </div>
     </article>
 
