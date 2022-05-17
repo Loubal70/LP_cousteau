@@ -33,9 +33,9 @@ get_header();
 		<div class="container">
 
 		<?php
-			$pronote 	= get_field('liens_dacces_a_pronote', 'options');
-			$alternance = get_field('liens_dacces_a_formation_en_alternance', 'options');
-			$ent 		= get_field('liens_dacces_a_lent', 'options');
+			$pronote 				= get_field('liens_dacces_a_pronote', 'options');
+			$alternance 			= get_field('liens_dacces_a_formation_en_alternance', 'options');
+			$ent 					= get_field('liens_dacces_a_lent', 'options');
 		?>
 			<?php if ( $pronote ): ?>
 				<a href="<?= $pronote ?>" class="single-lien" target="_blank">
@@ -53,7 +53,7 @@ get_header();
 						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_alternance.png" 
 						class="custom-size"
 						alt="Icone_alternance">
-						Formation en alternance
+						Formations en alternance
 				</a>
 			<?php endif; ?>
 
@@ -148,10 +148,10 @@ get_header();
 				<p><strong>Une question ? Une remarque ?</strong></p>
 				<a href="#" class="btn btn-primary orange">Nous contacter</a>
 			</div>
-			<div class="single-question-card bg-green">
+			<!-- <div class="single-question-card bg-green">
 				<p>Intéressé par l'apprentisage ?</p>
 				<a href="#" class="btn btn-primary green">+ d'infos</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 

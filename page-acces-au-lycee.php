@@ -24,14 +24,14 @@
         </div>
         <div>
             <span id="circle5"></span>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/icon_car.webp">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/icon_car.webp">
         </div>
     </div>
 
     <div class="access__transport">
         <div>
             <span id="circle6"></span>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/acces-transport.webp" alt="">
+            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/acces-transport.webp" alt="">
         </div>
         <div>
             <h2>Transports en commun</h2>

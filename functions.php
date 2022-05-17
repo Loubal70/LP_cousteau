@@ -249,7 +249,10 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
-// Add image in menu items
+/*
+* Add image in menu items
+*/
+
 add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
 
 function my_wp_nav_menu_objects( $items, $args ) {
@@ -261,3 +264,16 @@ function my_wp_nav_menu_objects( $items, $args ) {
 	}
 	return $items;
 }
+
+// function prefix_add_button_after_menu_item_children( $item_output, $item, $depth, $args ) {
+
+//     if ( $args->theme_location == 'main' ) {
+
+//         if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
+//             $item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="sub-menu-toggle" aria-expanded="false" aria-pressed="false"><span class="screen-reader-text">' . _x( 'open dropdown menu', 'verb: open the menu', 'text-domain' ) . '</span></button>', $item_output );
+//         }
+//     }
+
+//     return $item_output;
+// }
+// add_filter( 'walker_nav_menu_start_el', 'prefix_add_button_after_menu_item_children', 10, 4 );

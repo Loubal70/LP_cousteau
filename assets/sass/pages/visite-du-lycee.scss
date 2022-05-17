@@ -75,7 +75,7 @@
         flex-direction: row;
         margin: 150px 0px;
         align-items: center;
-
+        position: relative;
     
         div:nth-child(1) {
             width: 40%;
@@ -108,6 +108,7 @@
     
         div:nth-child(1) {
             width: 40%;
+            position: relative; 
         }
     
         div:nth-child(2) {

@@ -16,7 +16,7 @@ $big_title: "LilitaOne";
 $titre: "AUTHENTICSans-130";
 $sous_titre: "AUTHENTICSans-90";
 $paragraphe: "AUTHENTICSans-60";
-  
+
 /* Breakpoints */
 $grid-breakpoints: (
     "sm": 576px,
@@ -35,6 +35,10 @@ $grid-breakpoints: (
     box-sizing: border-box;
     // position: relative;
     scroll-behavior: smooth;
+}
+
+:target{
+    scroll-margin-top: 3rem;
 }
 
 body{

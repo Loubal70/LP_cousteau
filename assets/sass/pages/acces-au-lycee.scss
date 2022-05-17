@@ -88,6 +88,7 @@
         top: 40px;
         left: -50px;
         position: absolute;
+        z-index: -1;
     }
 
     #square2 {
@@ -107,6 +108,7 @@
         text-align: center;
         margin-top: 0px;
         margin-bottom: 70px;
+        position: relative;
 
         img {
             width: 450px;
@@ -138,6 +140,7 @@
 
         div:nth-child(2) {
             width: 40%;
+            position: relative;
         }
     }
 
@@ -159,6 +162,7 @@
 
         div:nth-child(1) {
             width: 40%;
+            position: relative;
         }
 
         div:nth-child(2) {
@@ -184,6 +188,7 @@
 
         div {
             margin: auto;
+            position: relative;
         }
 
         iframe {
