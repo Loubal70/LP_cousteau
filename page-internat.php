@@ -29,6 +29,11 @@
             </div>
         </div>
     </div>
+
+    <div class="internat__register">
+        <a href="https://tech-wiki.online/fr/parcel.html">Dossier d'inscription pour l'internat</a>
+    </div>
+
     <div class="internat__activites">
         <h2>Activités de l'internat</h2>
         <p>Pendant leur temps libre, les internes ont accès à un patio aménagé ou à différentes activités à l’intérieur de l’établissement comme </p>
@@ -62,6 +67,9 @@
     </div>
     <img src="https://img.olympicchannel.com/images/image/private/t_16-9_1920/primary/buillqkmgqntkkheg8el" alt="">
     <p class="internat__authorization">Toutes les sorties nécessitent une autorisation des parents pour les mineurs .</p>
+    <div class="internat__reglement">
+        <p>Découvrez également le <a href="">réglement intérieur de l'internat</a></p>
+    </div>
 </div>
 
 <?php get_footer(); ?>
