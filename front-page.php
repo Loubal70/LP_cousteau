@@ -5,26 +5,36 @@ if ( ! defined( 'ABSPATH' ) ) {
  
 get_header(); 
 
+$acf_field = (Object) get_field('home_page_data', 'options');
+
 ?>
 
 <div class="template-front-page content-body">
-
-	<?php //if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-	
-	<!-- <h1><?php //the_title(); ?></h1> -->
-	
-	<?php //the_content(); ?>
-	
-	<?php //endwhile; endif; ?>
 
 	<div class="front-page__entete">
 		<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_1" /> -->
 		
 		<div class="main-text container">
-			<p>Lycée des industries de la <span class="green">chimie</span> de l'agroalimentaire de la <span class="green">cosmétique</span> et de la pharmacie des entreprises de propreté et de <span class="green">stérilisation</span></p>
+			<p><?= $acf_field->titre_de_la_page ?></p>
 			<div class="link-buttons">
-				<a href="#" class="btn btn-primary orange">Nos formations</a>
-				<a href="#" class="btn btn-secondary green">Nous contacter</a>
+				<?php if ( $acf_field->bouton_a_gauche ): ?>
+					<a 
+						href="<?= $acf_field->bouton_a_gauche['url'] ?>" 
+						class="btn btn-primary orange"
+						<?php if ( $acf_field->bouton_a_gauche['target'] ): ?>
+							target="<?= $acf_field->bouton_a_gauche['target'] ?>"
+						<?php endif; ?>	
+					><?= $acf_field->bouton_a_gauche['title'] ?></a>
+				<?php endif; ?>
+				<?php if ( $acf_field->bouton_a_droite ): ?>
+					<a 
+						href="<?= $acf_field->bouton_a_droite['url'] ?>" 
+						class="btn btn-secondary green"
+						<?php if ( $acf_field->bouton_a_droite['target'] ): ?>
+							target="<?= $acf_field->bouton_a_droite['target'] ?>"
+						<?php endif; ?>	
+					><?= $acf_field->bouton_a_droite['title'] ?></a>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -80,7 +90,7 @@ get_header();
 					$args = array(
 						'post_type' 		=> 'post',
 						'post_status' 		=> 'publish',
-						'posts_per_page' 	=> 8,
+						'posts_per_page' 	=> get_option( 'posts_per_page' ),
 
 					);
 					$query = new WP_Query( $args );
@@ -146,7 +156,7 @@ get_header();
 		<div class="container">
 			<div class="single-question-card bg-orange">
 				<p><strong>Une question ? Une remarque ?</strong></p>
-				<a href="#" class="btn btn-primary orange">Nous contacter</a>
+				<a href="<?= home_url('/contactez-nous') ?>" class="btn btn-primary orange">Nous contacter</a>
 			</div>
 			<!-- <div class="single-question-card bg-green">
 				<p>Intéressé par l'apprentisage ?</p>

@@ -19,10 +19,22 @@
         <?php wp_nav_menu( array( 
             'theme_location'    => 'footer', 
             'container'         => 'div', 
-            'menu_class'        => 'site__footer__menu' ) ); ?>
+            'menu_class'        => 'site__footer__menu' ) ); 
+        ?>
     </div>
 </footer>
 
+<script>
+(function($) {
+
+    var postID = '<?= (get_field("menu_de_la_cantine", "options") ? get_field("menu_de_la_cantine", "options") : "null") ?>';
+
+    $('.header .nav-principal-desktop .site__header__menu li.menu-item-has-children ul.sub-menu')
+                .append('<li><a href="'+ postID +'">Menu de la cantine</a></li>');
+    
+})(jQuery);
+    
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -57,8 +57,10 @@
     </div>
 
     <div class="editorial__proviseur">
-        <p>Philippe Colmant</p>
-        <p>Proviseur</p>
+        <?php while ( have_rows( 'direction', 'options' ) ) : the_row(); ?>
+                <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'prenom', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?></p>
+                <p><?php the_sub_field( 'fonction', 'options' ); ?></p>
+        <?php endwhile; ?>
     </div>
 </div>
 

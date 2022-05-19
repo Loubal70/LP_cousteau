@@ -5,7 +5,6 @@ window.addEventListener("load", function (event) {
      */
     //  Get the button
     let mybutton = document.querySelector(".back-to-top");
-    console.log(mybutton);
 
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {

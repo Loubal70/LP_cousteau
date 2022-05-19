@@ -9,12 +9,17 @@
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.webp" >
     </div>
     <div>
-        <h2>Nous joindre par courrier :</h2>
-        <p>27, rue Pasteur</p>
-        <p>BP 30166</p>
-        <p>59444 <span class="orange-text">WASQUEHAL</span> CEDEX</p>
+        <h2>Nous joindre par téléphone :</h2>
+        <p>
+            <?php echo get_field('adresse', 'options'); ?>
+        </p>
         <br>
-        <p><span class="orange-text">Téléphone :</span> <a href="tel:0320723759">03 20 72 37 59</a></p>
+        <p><span class="orange-text">Téléphone :</span>  
+            <?php $tel = get_field('tel', 'options'); ?>               
+            <a href="tel:<?= (!empty($tel) ? str_replace(' ','',$tel) : "") ?>">
+                <?= (!empty($tel) ? str_replace('+33','0',$tel) : "") ?>
+            </a>
+        </p>
         <br>
         <p><span class="orange-text">Responsable Légal :</span> M. BLANDIN </p>
     </div>
@@ -24,14 +29,20 @@
     <div>
         <h2>Nous joindre par mail :</h2>
             <h3>Direction :</h3>
-                <p>Monsieur BLANDIN, Proviseur</p>
-                <a href="mailto:ce.0590249a@ac-lille.fr">ce.0590249a@ac-lille.fr</a>
+        <?php while ( have_rows( 'direction', 'options' ) ) : the_row(); ?>
+                <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?>, <?php the_sub_field( 'fonction', 'options' ); ?></p>
+                <a href="mailto:<?php the_sub_field( 'adresse_mail', 'options' ); ?>"><?php the_sub_field( 'adresse_mail', 'options' ); ?></a>
+        <?php endwhile; ?>
             <h3>Service de Gestion :</h3>
-                <p>Monsieur CHIKHAOUI, Adjoint gestionnaire</p>
-                <a href="mailto:intendant.0590249a@ac-lille.fr">intendant.0590249a@ac-lille.fr</a>
+        <?php while ( have_rows( 'service-de-gestion', 'options' ) ) : the_row(); ?>
+                <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?>, <?php the_sub_field( 'fonction', 'options' ); ?></p>
+                <a href="mailto:<?php the_sub_field( 'adresse_mail', 'options' ); ?>"><?php the_sub_field( 'adresse_mail', 'options' ); ?></a>
+        <?php endwhile; ?>
             <h3>Directrice déléguée aux formations professionnelles et technologiques :</h3>
-                <p>Madame CORTES</p>
-                <a href="mailto:ddfpt.0590249a@ac-lille.fr">ddfpt.0590249a@ac-lille.fr</a>
+         <?php while ( have_rows( 'directeur-delegue', 'options' ) ) : the_row(); ?>
+                <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?>, <?php the_sub_field( 'fonction', 'options' ); ?></p>
+                <a href="mailto:<?php the_sub_field( 'adresse_mail', 'options' ); ?>"><?php the_sub_field( 'adresse_mail', 'options' ); ?></a>
+        <?php endwhile; ?>
     </div>
     <div>
         <span id="square1"></span>
@@ -48,23 +59,20 @@
     </div>
     <div>
         <h3>Vie Scolaire :</h3>
-            <p>Monsieur MOUROT, Conseiller Principal d'Éducation</p>
-            <a href="mailto:stephane.mourat@ac-lille.fr">stephane.mourat@ac-lille.fr</a>
-        <br/>
-        <br>
-            <p>Madame YON, Conseillère Principale d'Éducation</p>
-            <a href="mailto:alexandra.yon@ac-lille.fr">alexandra.yon@ac-lille.fr</a>
+        <?php while ( have_rows( 'vie-scolaire', 'options' ) ) : the_row(); ?>
+            <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?>, <?php the_sub_field( 'fonction', 'options' ); ?></p>
+            <a href="mailto:<?php the_sub_field( 'adresse_mail', 'options' ); ?>"><?php the_sub_field( 'adresse_mail', 'options' ); ?></a>
+            <br/>
+            <br>
+        <?php endwhile; ?>
+
         <h3>Services médico-sociaux</h3>
-            <p>Monsieur PERRIER, Infirmier</p>
-            <a href="mailto:baptiste.perrier@ac-lille.fr">baptiste.perrier@ac-lille.fr</a>
-        <br>
-        <br>
-            <p>Madame CAILLAUD, Assistante Sociale</p>
-            <a href="mailto:claire.caillaud@ac-lille.fr">claire.caillaud@ac-lille.fr</a>
-        <br>
-        <br>
-            <p>Madame ALLAERT, Psy et Conseillère d'orientation</p>
-            <a href="mailto:florence.allaert@ac-lille.fr">florence.allaert@ac-lille.fr</a>
+        <?php while ( have_rows( 'service-medico-sociaux', 'options' ) ) : the_row(); ?>
+            <p><?php the_sub_field( 'civilite', 'options' ); ?> <?php the_sub_field( 'nom', 'options' ); ?>, <?php the_sub_field( 'fonction', 'options' ); ?></p>
+            <a href="mailto:<?php the_sub_field( 'adresse_mail', 'options' ); ?>"><?php the_sub_field( 'adresse_mail', 'options' ); ?></a>
+            <br/>
+            <br>
+        <?php endwhile; ?>
     </div>
 </div>
 
