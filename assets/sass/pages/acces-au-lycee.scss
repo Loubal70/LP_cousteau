@@ -100,6 +100,7 @@
         top: 40%;
         right: -50px;
         position: absolute;
+        z-index: -1;
     }
 
     .access__header {
@@ -183,6 +184,9 @@
             p {
                 padding-top: 5px;
                 padding-left: 5px;
+                span{
+                    font-family: $big_title;
+                }
             }
         }
 

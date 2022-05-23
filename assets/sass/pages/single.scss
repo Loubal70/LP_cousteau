@@ -1,5 +1,10 @@
 .formations, .post{
-    padding: 5rem 0;
+    padding: 3rem 15px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        padding: 5rem 0;
+    }
+    
     h1{
         text-align: center;
         font-size: 2.3rem;
@@ -113,5 +118,13 @@
                 }
             }
         }
+    }
+}
+
+.archive article{
+    padding: 3rem 15px;
+
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        padding: 3rem 0;
     }
 }

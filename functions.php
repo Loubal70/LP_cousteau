@@ -134,6 +134,17 @@ function cpt_formations() {
 }
 add_action( 'init', 'cpt_formations' );
 
+function new_cpt_archive_title($title){
+
+    if ( is_post_type_archive('formations') ){
+        $title = 'Formations en alternance - ' . get_bloginfo('name');
+        return $title;
+    }
+
+    return $title;
+} 
+
+add_filter( 'pre_get_document_title', 'new_cpt_archive_title', 9999 );
 
 /**
  *  Ajout d'un champ Niveau pour le type de contenu "Formations"

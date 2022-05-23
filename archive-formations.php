@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
  
-get_header(); 
+get_header();
 
 $args = array(
     'post_type' => 'formations',
@@ -20,17 +20,18 @@ $paragrapheACF = get_field('paragraphe_alternance', 'options');
 <main class="archive formations container">
     <h1>Formations en alternance</h1>
     <?php if ( $paragrapheACF ): ?>
-        <p><?= $paragrapheACF ?></p>
+        <?= $paragrapheACF ?>
     <?php endif; ?>
 <?php 
 if( $query->have_posts() ) : 
     while( $query->have_posts() ) : $query->the_post(); 
 ?>
-<article class="post formations container">
+<article class="post">
     <div class="post__content">
-        <h2><?php the_title(); ?></h2>
         <main>
+            <h2><?php the_title(); ?></h2>
             <?php the_excerpt(); ?>
+            <a class="btn btn-primary btn-formation green" href="<?= the_permalink() ?>">En savoir plus sur le <?php the_title() ?></a>
         </main>
     </div>
 </article>

@@ -41,6 +41,14 @@
         &.grey{
             background-color: $grey;
         }
+
+        &.btn-formation{
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            padding: 10px 15px;
+            font-size: 1rem;
+        }
     }
 
     &-secondary{

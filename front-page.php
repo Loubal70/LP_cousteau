@@ -58,7 +58,7 @@ $acf_field = (Object) get_field('home_page_data', 'options');
 			<?php endif; ?>
 
 			<?php if ( $alternance ): ?>
-				<a href="<?= $alternance ?>" class="single-lien" target="_blank">
+				<a href="<?= $alternance ?>" class="single-lien">
 					<img 
 						src="<?php echo get_template_directory_uri(); ?>/assets/images/icon_alternance.png" 
 						class="custom-size"
