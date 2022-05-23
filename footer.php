@@ -23,17 +23,17 @@
         ?>
     </div>
 </footer>
-
 <script>
 (function($) {
 
-    var postID = '<?= (get_field("menu_de_la_cantine", "options") ? get_field("menu_de_la_cantine", "options") : "null") ?>';
+    var postACF = '<?= ($menu = get_field("menu_de_la_cantine", "options") ? get_field("menu_de_la_cantine", "options") : "null") ?>';
+    var img    = '<?= get_template_directory_uri()."/assets/images/menu-cantine.webp" ?>';
 
-    $('.header .nav-principal-desktop .site__header__menu li.menu-item-has-children ul.sub-menu')
-                .append('<li><a href="'+ postID +'">Menu de la cantine</a></li>');
-    
+    if (postACF !== 'null') {
+        $('.header .nav-principal-desktop .site__header__menu li.menu-item-has-children ul.sub-menu')
+            .append('<li><a href="'+ postACF +'">Menu de la cantine<div><img src="' + img +'" class="attachment-thumbnail size-thumbnail" alt="Image d\'une cantine" loading="lazy" /></div></a></li>');
+    }
 })(jQuery);
-    
 </script>
 <?php wp_footer(); ?>
 </body>

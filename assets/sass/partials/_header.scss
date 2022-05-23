@@ -111,12 +111,6 @@
                         top: 100px
                     }
 
-                    // @media (min-width: 1300px){
-                    //     top: 130px
-                    // }
-
-                    
-
                     li{
                         a{
                             font-size: 1.2rem;
@@ -129,6 +123,8 @@
                             div{
                                 overflow: hidden;
                                 border-radius: 5px;
+                                width: 150px;
+                                height: 150px;
 
                                 img{
                                     border-radius: 5px;

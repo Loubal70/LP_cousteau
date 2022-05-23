@@ -158,10 +158,10 @@ $acf_field = (Object) get_field('home_page_data', 'options');
 				<p><strong>Une question ? Une remarque ?</strong></p>
 				<a href="<?= home_url('/contactez-nous') ?>" class="btn btn-primary orange">Nous contacter</a>
 			</div>
-			<!-- <div class="single-question-card bg-green">
+			<div class="single-question-card bg-green">
 				<p>Intéressé par l'apprentisage ?</p>
-				<a href="#" class="btn btn-primary green">+ d'infos</a>
-			</div> -->
+				<a href="<?= home_url('/formation/') ?>" class="btn btn-primary green">+ d'infos</a>
+			</div>
 		</div>
 	</div>
 

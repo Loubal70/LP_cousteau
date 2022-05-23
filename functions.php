@@ -234,12 +234,6 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Général',
 		'parent_slug'	=> 'theme-general-settings',
 	));
-
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Internat',
-		'menu_title'	=> 'Internat',
-		'parent_slug'	=> 'theme-general-settings',
-	));
 	
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Pied de page',
