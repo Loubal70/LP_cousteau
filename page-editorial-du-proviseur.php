@@ -3,36 +3,55 @@
 <div class="template-editorial content-body">
     <div class="editorial__presentation container">
         <div>
-            <img src="https://www.tangycoffee.com/wp-content/uploads/2020/12/coffee-4609952_1280-e1607080525823.jpg" alt="">
+            <?php 
+                $image_id = get_field( 'image_introduction_edito', 'options' );
+                if( $image_id ) {	
+                    echo wp_get_attachment_image( $image_id, 'full' );
+                } else{
+                    ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+                    <?php
+                }
+            ?>
+            
         </div>
         <div>
             <h1 class="title"><?php the_title() ?></h1>
-            <p>Depuis prés de cinquante ans, la communauté éducative du lycée professionnel Jacques-Yves Cousteau accueille avec le même engouement des jeunes venus de divers horizons et participe activement à la concrétisation de leur projet professionnel.</p>
+            <p><?php the_field('introduction_de_ledito', 'options'); ?></p>
         </div>
     </div>
 
     <div class="editorial__localisation">
-        <p>Niché au cœur de la ville de Wasquehal, <span>à 15 minutes de la gare Lille Flandres </span> par le métro et disposant d’un internat, notre lycée implanté dans la métropole lilloise possède de sérieux atouts permettant la mobilité géographique des jeunes.</p>
+        <p><?php the_field('localisation_lycee', 'options'); ?></p>
         <div>
-            <img src="" alt="">
+            <?php $id_image_localisation = get_field( 'image_introduction_edito', 'options' ); ?>
+
+            <?php if( $id_image_localisation ) : ?>	
+                <?= wp_get_attachment_image($id_image_localisation, 'medium' ); ?>
+            <?php else: ?>
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+            <?php endif; ?>
         </div>
     </div>
 
     <div  class="editorial__formation-presentation">
         <p>Notre lycée propose des formations en <span>CAP, BAC PRO et BT</span> dans des secteurs industriels qui recrutent :</p>
         <div class="formation-presentation__gallery">
-            <div>
-                <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>L'hygiène, la propeté et la stérilisation</p>
-            </div>
-            <div>
-                <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>Chimie</p>
-            </div>
-            <div>
-                <img src="https://afpic.com/wp-content/uploads/2021/01/La-chimie-au-laboratoire.jpg" alt="">
-                <p>L'agroalimentaire</p>
-            </div>
+            <?php if( have_rows( 'secteurs_formation_edito', 'options' ) ): ?>
+                <?php while ( have_rows( 'secteurs_formation_edito', 'options' ) ) : the_row(); ?>
+                    <div>
+                        <?php $id_image_secteur = get_sub_field( 'image_secteur', 'options' ); ?>
+
+                        <?php if( $id_image_secteur ) : ?>	
+                            <?= wp_get_attachment_image($id_image_secteur, 'medium' ); ?>
+                        <?php else: ?>
+                            <img src="<?= get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+                        <?php endif; ?>
+
+                        <p><?php the_sub_field('titre_categorie_formation', 'options'); ?></p>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
         <div class="formation-presentation__insertion">
             <p>L’insertion des jeunes diplômés dans la vie active s’en trouve donc favorisée.</p>
@@ -42,18 +61,31 @@
 
     <div class="editorial__young-student">
         <div>
-            <img src="https://st2.depositphotos.com/3944627/7866/i/450/depositphotos_78664718-stock-photo-double-exposure-of-scientist-hand.jpg" alt="">
+            <?php $id_image_structure_educative = get_field( 'image_structure_educative', 'options' ); ?>
+
+            <?php if( $id_image_structure_educative ) : ?>	
+                <?= wp_get_attachment_image($id_image_structure_educative, 'medium' ); ?>
+            <?php else: ?>
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+            <?php endif; ?>
         </div>
         <div>
-            <p>Ainsi l’établissement accueille aussi de jeunes apprentis et contribue à la formation tout au long de la vie d’adultes. Disposant de plateaux techniques à la pointe du modernisme, les espaces numériques et pédagogiques font l’unanimité tant auprès des personnels et des jeunes que des professionnels.</p>
-            <p>De taille humaine, le lycée professionnel Jacques-Yves Cousteau dispose d’un cadre verdoyant et les enseignements en groupe à effectifs réduits permettent un meilleur apprentissage des savoirs, savoir-faire et l’acquisition de savoir-être.</p>
+            <p><?php the_field('texte_structure_educative', 'options'); ?></p>
         </div>
     </div>
 
     <div class="editorial__resume">
-        <p>Enfin la communauté éducative est attachée à l’ouverture culturelle des apprenants. Ainsi de nombreux projets éducatifs et pédagogiques se déroulent tout au long de l’année scolaire. L’éducation du citoyen de demain vient, de fait, compléter la formation du futur salarié et ce dans un épanouissement culturel certain.</p>
-        <img src="https://cousteau-wasquehal.enthdf.fr/wp-content/uploads/2019/11/image-lycee-900x420.jpg" alt="">
-        <p>Vous l’aurez compris, le lycée Jacques-Yves Cousteau, fort d’une longue expérience, poursuit son ambition de faire réussir chaque jeune qui lui fait confiance en menant à terme son projet professionnel.</p>
+        <p><?php the_field('informations_supplementaire_lycee', 'options'); ?></p>
+
+        <?php $id_image_supp_lycee = get_field( 'image_supplementaire_lycee', 'options' ); ?>
+
+        <?php if( $id_image_supp_lycee ) : ?>	
+            <?= wp_get_attachment_image($id_image_supp_lycee, 'medium' ); ?>
+        <?php else: ?>
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+        <?php endif; ?>
+
+        <p><?php the_field('conclusion_edito', 'options'); ?></p>
     </div>
 
     <div class="editorial__proviseur">

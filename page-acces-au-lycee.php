@@ -13,18 +13,19 @@
     <div class="access__cars">
         <div>
             <h2>En Voiture</h2>
-            <p>
-                En venant de Lille ou Villeneuve d’Ascq
-                <span class="orange-text">via l’A22 – Sortie n°11 “Wasquehal-Croix”</span>
-            </p>
-            <p>
-                En venant de Roubaix-Tourcoing via
-                <span class="orange-text">la Voie Rapide Urbaine, sortie “Centre commercial – Marcq en Baroeul – Croix Centre – Wasquehal Centre” (au niveau du centre commercial “Carrefour”)</span>
-            </p>
+            <?php echo get_field('paragraphe_en_voiture', 'options'); ?>
         </div>
         <div>
             <span id="circle5"></span>
-            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/icon_car.webp">
+            <?php $id_image_en_voiture = get_field( 'image_en_voiture', 'options' ); ?>
+
+            <?php if( $id_image_en_voiture ) : ?>    
+                <?= wp_get_attachment_image($id_image_en_voiture, 'medium' ); ?>
+            <?php else: ?>
+                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/icon_car.webp">
+            <?php endif; ?>
+
+            
         </div>
     </div>
 
@@ -35,24 +36,14 @@
         </div>
         <div>
             <h2>Transports en commun</h2>
-            <p>
-            <span class="blue-text">Métro : </span><span class="orange-text">Ligne 2 – Arrêt « Wasquehal – Hôtel de Ville »</span>
-            </p>
-            <p>
-            <span class="orange-text">Depuis « Gare Lille Flandres » :</span> (Durée : 15 minutes) Prendre le métro ligne 2 en direction de « Tourcoing – CH Dron »
-            <span class="orange-text">Depuis Roubaix « Eurotéléport »</span> (Durée : 7 minutes) <span class="orange-text">et Tourcoing « Centre » </span>(Durée : 15 minutes) : Prendre le métro ligne 2 en 
-            direction de « St. Phillibert (LILLE) »
-            Descendre à la station « Wasquehal – Hôtel de Ville » puis : « Prendre la direction sud-ouest sur Rue Michelet vers Place du Général
-             de Gaulle, puis après la Place de la République tourner à droite sur la Rue Jean Macé, Traverser le rond-point à 200m puis
-              continuer sur Rue Pasteur sur 200m. <span class="orange-text">Le lycée se trouvera sur votre gauche.</span>
-            </p>
+            <?php echo get_field('paragraphe_transports_en_commun', 'options'); ?>
         </div>
     </div>
 
     <div class="access__maps">
         <div>
             <h2>En bus :</h2>
-            <p>LIGNE Transpole n°21 – <span class="orange-text">Arrêt « Wasquehal – Centre »</span></p>
+            <p><?php echo get_field('texte_ligne_de_bus', 'options'); ?></p>
         </div>
         <div>
             <span id="square1"></span>

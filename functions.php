@@ -53,7 +53,7 @@ function cousteau_register_assets() {
         wp_enqueue_script( 'internat', get_template_directory_uri().'/assets/js/internat.js', array( 'jquery' ), null, true );
     }
 
-    if( is_singular('formations') )
+    if( is_singular('formations'))
     {
         wp_enqueue_script( 'formations', get_template_directory_uri().'/assets/js/formations.js', array( 'jquery' ), null, true );
     }

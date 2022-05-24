@@ -4,10 +4,14 @@
     <div class="visite__header">
         <div>
             <h1 class="title">Visite du lycée</h1>
-            <p>Le Lycée Professionnel <span class="blue-text"><strong>Jacques-Yves Cousteau</strong></span> a ouvert ses portes en 1963, et peut accueillir plus de 250 élèves.</p>
+            <p><?php the_field('introduction_visite_du_lycee', 'options'); ?></p>
         </div>
         <div>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/page-acces/visite-header.webp" alt="Image visite du lycée cousteau">
+            <?php if( get_field( 'image_introductive_visite_lycee', 'options' ) ) : ?>	
+                <?= wp_get_attachment_image($id_image_intro_visite, 'medium' ); ?>
+            <?php else: ?>
+                <img src="<?= get_template_directory_uri(); ?>/assets/images/contact-direction-lycee.webp" alt="">
+            <?php endif; ?>
         </div>
         <span id="square1"></span>
         <span id="square2"></span>

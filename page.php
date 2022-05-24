@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -7,13 +7,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); 
 
 ?>
-	<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+  <?php if( have_posts() ) : 
+    while( have_posts() ) : 
+      the_post(); 
+  ?>
     
-    	<div class="container">
-			<h1><?php the_title(); ?></h1>
-		
-			<?php the_content(); ?>
-		</div>
+    <article class="post formations container">
+      <h1><?php the_title(); ?></h1>
+      <div class="post__content">
+        <main>
+          <?php the_content(); ?>
+        </main>
+      </div>
+    </article>
 
-	<?php endwhile; endif; ?>
-<?php get_footer(); ?>
+  <?php endwhile; endif; ?>
+<?php get_footer(); ?> 
