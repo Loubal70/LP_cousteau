@@ -100,12 +100,17 @@
                     overflow: hidden;
                     display: flex;
                     justify-content: center;
+                    flex-direction: column;
                     align-items: center;
                     gap: 50px;
                     transition: all .5s ease;
                     transform-origin: top;
                     box-shadow: 0px 6px 7px 0px rgba(0,0,0,.02);
                     z-index: 1000;
+
+                    @media (min-width: map-get($grid-breakpoints, md)) {
+                        flex-direction: row;
+                    }
 
                     @media (min-width: map-get($grid-breakpoints, xl)){
                         top: 100px
@@ -125,6 +130,11 @@
                                 border-radius: 5px;
                                 width: 150px;
                                 height: 150px;
+                                display: none;
+
+                                @media (min-width: map-get($grid-breakpoints, md)) {
+                                    display: block;
+                                }
 
                                 img{
                                     border-radius: 5px;
@@ -142,15 +152,19 @@
                     }
                 }
 
-                @media (min-width: map-get($grid-breakpoints, xl)){
+                // @media (min-width: map-get($grid-breakpoints, xl)){
                     &:hover{
                         > ul{
-                            height: 250px;
+                            height: 400px;
                             transform: scaleY(1);
+
+                            @media (min-width: map-get($grid-breakpoints, md)) {
+                                height: 250px;
+                            }
                             // transition: all .5s ease-out;
                         }
                     }
-                }
+                // }
             }
         }
         .link-contact-us{

@@ -28,14 +28,6 @@
                 <a href="/contactez-nous" class="btn btn-primary orange link-contact-us">Contactez-nous</a>
             </div>
 
-            <!-- <button class="button-open-menu-mobile"><i class="fa-solid fa-bars"></i></button> -->
-            
-            <!-- <div class="nav-principal-mobile">
-                <button class="button-close-menu-mobile"><i class="fa-solid fa-xmark"></i></button>
-                <?php wp_nav_menu( array( 'theme_location' => 'main' ) ); ?>
-                
-                <a href="/contactez-nous" class="btn btn-primary orange link-contact-us">Contactez-nous</a>
-            </div> -->
         </header>
 
         <?php wp_body_open(); ?>

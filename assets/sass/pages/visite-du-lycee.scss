@@ -2,16 +2,15 @@
     color: #2A418F;
 }
 
-.orange-text {
-    color: #F5A65B;
-}
-
 .template-visite {
     margin-left: 100px;
     margin-right: 100px;
 
     p {
         font-size: 18px;
+        b{
+            color: #F5A65B;
+        }
     }
 
     img {
@@ -79,6 +78,11 @@
     
         div:nth-child(1) {
             width: 40%;
+            p{
+                b{
+                    color: #F5A65B;
+                }
+            }
         }
     
         div:nth-child(2) {
@@ -96,6 +100,9 @@
         p {
             margin-bottom: 50px;
             line-height: 30px;
+            b{
+                color: $orange;
+            }
         }
     }
 

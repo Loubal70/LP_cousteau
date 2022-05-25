@@ -77,6 +77,14 @@ $acf_field = (Object) get_field('home_page_data', 'options');
 				</a>
 			<?php endif; ?>
 
+			<a href="<?= home_url("/cdi/") ?>" class="single-lien">
+				<img 
+					src="<?php echo get_template_directory_uri(); ?>/assets/images/book.webp" 
+					class="custom-size"
+					alt="Icone_CDI">
+					CDI
+			</a>
+
 		</div>
 	</div>
 	
