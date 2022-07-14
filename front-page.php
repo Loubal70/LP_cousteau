@@ -12,6 +12,11 @@ $acf_field = (Object) get_field('home_page_data', 'options');
 <div class="template-front-page content-body">
 
 	<div class="front-page__entete">
+		<div class="sliders__header">
+		<?php foreach ( $acf_field->images_en_fond as $key => $value ): ?>
+			<?= wp_get_attachment_image($value['image'], 'full', false, array('class' => 'front-page__image')); ?>
+		<?php endforeach; ?>
+		</div>
 		<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder.jpg" alt="Photo_front-page_1" /> -->
 		
 		<div class="main-text container">
@@ -158,6 +163,10 @@ $acf_field = (Object) get_field('home_page_data', 'options');
 				<?php wp_reset_postdata(); ?>
 			</div>
 		</div>
+	</div>
+
+	<div class="front-page__maps">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1259.7628182575802!2d3.125801495894408!3d50.672355129584524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c329989edab28b%3A0xfed724f30a635d8a!2sLyc%C3%A9e%20Jacques-Yves%20Cousteau!5e1!3m2!1sfr!2sfr!4v1656762447722!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
 	
 	<div class="front-page__questions">
